@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    int n, m, p, k, j;
+    int i = 0;  // counter for monkeys that came down
+
+    // Input
+    printf("Enter total monkeys, bananas, peanuts, bananas per monkey, peanuts per monkey:\n");
+    scanf("%d %d %d %d %d", &n, &m, &p, &k, &j);
+
+    // One monkey at a time
+    while (i < n) {
+        if (m >= k) {
+            m = m - k;  // monkey eats bananas
+        }
+        else if (p >= j) {
+            p = p - j;  // monkey eats peanuts
+        }
+        else {
+            break;  // not enough food
+        }
+        i++;  // monkey ate and went
+    }
+
+    // Monkeys left = total - who ate
+    printf("Monkeys left on the tree: %d\n", n - i);
+
+    return 0;
+}
